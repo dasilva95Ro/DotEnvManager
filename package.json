@@ -1,0 +1,75 @@
+{
+  "name": "dotenv-manager",
+  "displayName": "DotEnv Manager",
+  "description": "Gerencie arquivos .env facilmente - gere múltiplos ambientes (.env.example, .env.development, .env.production, etc.)",
+  "version": "1.3.0",
+  "publisher": "rodrigo-santos",
+  "author": "Rodrigo Santos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dasilva95Ro/DotEnvManager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dasilva95Ro/DotEnvManager/issues"
+  },
+  "homepage": "https://github.com/dasilva95Ro/DotEnvManager#readme",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "dotenv",
+    ".env",
+    "environment",
+    "variables",
+    "example"
+  ],
+  "activationEvents": [
+    "onLanguage:dotenv"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dotenv-manager.generateExample",
+        "title": "Gerar arquivo .env para ambiente específico",
+        "category": "DotEnv Manager"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "dotenv-manager.generateExample",
+          "when": "resourceFilename =~ /^\\.env$/",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "dotenv-manager.generateExample",
+          "when": "resourceFilename =~ /^\\.env$/",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "typescript": "^4.7.4"
+  }
+}

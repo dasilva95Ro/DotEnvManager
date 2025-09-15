@@ -1,0 +1,21 @@
+# Build outputs
+out/
+dist/
+
+# Dependencies
+node_modules/
+
+# VS Code
+.vscode/
+.vscode-test/
+
+# Claude Code
+.claude/
+
+# Extension packages
+*.vsix
+
+# Environment files
+.env*
+!.env.example
+
