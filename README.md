@@ -8,17 +8,18 @@ Uma extensão robusta e segura para VS Code que facilita o gerenciamento de arqu
 
 ## Funcionalidades
 
-- **Gerar arquivos .env para múltiplos ambientes**: A partir de um arquivo `.env`, gera automaticamente arquivos para diferentes ambientes (.env.example, .env.development, .env.production, etc.)
-- **Seleção interativa de ambiente**: Interface intuitiva para escolher o tipo de arquivo desejado
-- **Nomes personalizados**: Opção para criar arquivos com nomes personalizados
-- **Informações de autoria**: Inclui automaticamente o autor (nome do Git) e data de geração nos comentários
-- **Rastreabilidade**: Cada arquivo gerado contém informações sobre quando e por quem foi criado
+- **🔄 Suporte completo para qualquer arquivo .env.***: Use qualquer arquivo `.env.*` como origem (não apenas `.env`)
+- **🚀 Gerar arquivos .env para múltiplos ambientes**: Crie `.env.production` a partir de `.env.example`, ou qualquer combinação possível
+- **✨ Seleção interativa de ambiente**: Interface intuitiva que filtra automaticamente o arquivo de origem
+- **🎯 Nomes personalizados**: Opção para criar arquivos com nomes personalizados
+- **👤 Informações de autoria**: Inclui automaticamente o autor (nome do Git) e data de geração nos comentários
+- **📝 Rastreabilidade**: Cada arquivo gerado contém informações sobre quando e por quem foi criado
 
 ## Como usar
 
-1. Clique com o botão direito em um arquivo `.env` no explorador de arquivos
+1. Clique com o botão direito em **qualquer arquivo .env.*** no explorador de arquivos (`.env`, `.env.example`, `.env.production`, etc.)
 2. Selecione "Gerar arquivo .env para ambiente específico" no menu de contexto
-3. Escolha o tipo de ambiente desejado no menu de seleção:
+3. Escolha o tipo de ambiente desejado no menu de seleção (o arquivo de origem será automaticamente filtrado):
    - `.env.example` - Arquivo template padrão
    - `.env.development` - Ambiente de desenvolvimento
    - `.env.staging` - Ambiente de homologação/teste
@@ -31,9 +32,26 @@ Uma extensão robusta e segura para VS Code que facilita o gerenciamento de arqu
 
 Ou:
 
-1. Abra um arquivo `.env` no editor
+1. Abra **qualquer arquivo .env.*** no editor
 2. Use `Ctrl+Shift+P` (ou `Cmd+Shift+P` no Mac) para abrir a paleta de comandos
 3. Digite "Gerar arquivo .env para ambiente específico" e execute o comando
+
+### Exemplos de Uso
+
+**Cenário 1:** Criar arquivo de produção a partir do template
+- Arquivo origem: `.env.example`
+- Ação: Clique direito → Selecione `.env.production`
+- Resultado: `.env.production` criado com valores sanitizados
+
+**Cenário 2:** Criar arquivo de teste a partir de desenvolvimento
+- Arquivo origem: `.env.development`
+- Ação: Clique direito → Selecione `.env.test`
+- Resultado: `.env.test` criado preservando estrutura
+
+**Cenário 3:** Criar template a partir de produção
+- Arquivo origem: `.env.production`
+- Ação: Clique direito → Selecione `.env.example`
+- Resultado: `.env.example` criado como documentação
 
 ## Funcionalidades da conversão
 
@@ -86,8 +104,14 @@ API_ENDPOINT=https://example.com
 
 ## Instalação
 
-### Via arquivo VSIX (Recomendado)
-1. Baixe o arquivo `dotenv-manager-1.3.0.vsix` do [repositório](https://github.com/dasilva95Ro/DotEnvManager)
+### Via Marketplace (Recomendado)
+1. Abra o VS Code
+2. Vá para Extensions (`Ctrl+Shift+X`)
+3. Busque por "DotEnv Manager"
+4. Clique em "Install"
+
+### Via arquivo VSIX
+1. Baixe o arquivo `dotenv-manager-1.4.0.vsix` do [repositório](https://github.com/dasilva95Ro/DotEnvManager/releases)
 2. No VS Code: `Ctrl+Shift+P` → "Extensions: Install from VSIX"
 3. Selecione o arquivo baixado
 4. Reinicie o VS Code se necessário
@@ -118,7 +142,13 @@ API_ENDPOINT=https://example.com
 
 ## Versões
 
-### v1.3.0 (Atual)
+### v1.4.0 (Atual)
+- 🚀 **Suporte para qualquer arquivo .env.* como origem**
+- ✨ Filtro automático do arquivo de origem no seletor
+- 🎯 Placeholder dinâmico mostrando arquivo base
+- 🔄 Flexibilidade total para criar qualquer combinação de ambientes
+
+### v1.3.0
 - ✅ Melhorias de segurança completas
 - ✅ Documentação técnica abrangente
 - ✅ Validações robustas de entrada

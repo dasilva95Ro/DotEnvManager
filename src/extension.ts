@@ -35,7 +35,8 @@ export function activate(context: vscode.ExtensionContext) {
                 envFilePath = activeEditor.document.fileName;
             }
 
-            if (!envFilePath.endsWith('.env')) {
+            const fileName = path.basename(envFilePath);
+            if (!fileName.startsWith('.env')) {
                 vscode.window.showErrorMessage('Por favor, selecione um arquivo .env válido.');
                 return;
             }
@@ -56,8 +57,13 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 async function showEnvTypeSelector(envFilePath: string): Promise<void> {
-    const selectedType = await vscode.window.showQuickPick(ENV_TYPES, {
-        placeHolder: 'Selecione o tipo de arquivo .env para gerar',
+    const sourceFileName = path.basename(envFilePath);
+
+    // Filtrar para não mostrar o arquivo de origem como opção
+    const availableTypes = ENV_TYPES.filter(type => type.label !== sourceFileName);
+
+    const selectedType = await vscode.window.showQuickPick(availableTypes, {
+        placeHolder: `Criar novo arquivo .env a partir de ${sourceFileName}`,
         matchOnDescription: true
     });
 

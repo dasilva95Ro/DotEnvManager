@@ -2,8 +2,8 @@
   "name": "dotenv-manager",
   "displayName": "DotEnv Manager",
   "description": "Gerencie arquivos .env facilmente - gere múltiplos ambientes (.env.example, .env.development, .env.production, etc.)",
-  "version": "1.3.0",
-  "publisher": "rodrigo-santos",
+  "version": "1.4.0",
+  "publisher": "DotEnvManager",
   "author": "Rodrigo Santos",
   "license": "MIT",
   "repository": {
@@ -25,7 +25,11 @@
     ".env",
     "environment",
     "variables",
-    "example"
+    "example",
+    "development",
+    "production",
+    "staging",
+    "configuration"
   ],
   "activationEvents": [
     "onLanguage:dotenv"
@@ -43,14 +47,14 @@
       "explorer/context": [
         {
           "command": "dotenv-manager.generateExample",
-          "when": "resourceFilename =~ /^\\.env$/",
+          "when": "resourceFilename =~ /^\\.env/",
           "group": "navigation"
         }
       ],
       "editor/context": [
         {
           "command": "dotenv-manager.generateExample",
-          "when": "resourceFilename =~ /^\\.env$/",
+          "when": "resourceFilename =~ /^\\.env/",
           "group": "navigation"
         }
       ]
